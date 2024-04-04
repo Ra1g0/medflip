@@ -129,7 +129,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
                 //check button for exit
                 Padding(
-                  padding: EdgeInsets.only(top: 20.0), 
+                  padding: const EdgeInsets.only(top: 20.0), 
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
