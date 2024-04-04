@@ -11,7 +11,7 @@ import 'package:medieval_flip/leaderboard.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseHelper.initializeDatabase();
-  runApp(const MainMenu());
+  runApp(const MainMenu());  //we retarded
 }
 
 class MainMenu extends StatelessWidget {
