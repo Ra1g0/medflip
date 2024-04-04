@@ -4,14 +4,13 @@ import 'start_game.dart';
 import 'dart:io';
 import 'instructions.dart';
 
-
 import 'package:medieval_flip/database_helper.dart';
 import 'package:medieval_flip/leaderboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseHelper.initializeDatabase();
-  runApp(const MainMenu());
+  runApp(const MainMenu()); //Bosiing nambawan
 }
 
 class MainMenu extends StatelessWidget {
@@ -234,5 +233,3 @@ Widget medievalButtonWidget(
         )),
   );
 }
-
-
