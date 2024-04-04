@@ -1,0 +1,76 @@
+name: "medieval_flip"
+description: "A Medieval Theme Matching Memory Game!."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  audioplayers: 1.1.0
+  video_player: ^2.2.13
+  provider: ^5.0.0
+  cupertino_icons: ^1.0.6
+  path_provider: ^2.1.2
+  sqflite: ^2.3.2
+  path: ^1.9.0
+ 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/music/background_music.mp3
+    - assets/images/main_menu.jpg
+    - assets/images/game_background.png
+    - assets/icons/timer.png
+    - assets/icons/score.png
+    - assets/icons/moves.png
+    - assets/images/card01.png
+    - assets/images/card02.png
+    - assets/images/card03.png
+    - assets/images/card04.png
+    - assets/images/card05.png
+    - assets/images/card06.png
+    - assets/images/card07.png
+    - assets/images/card08.png
+    - assets/images/cardback01.jpg
+    - assets/images/black_parchment.png
+    - assets/images/result_box.png
+    - assets/images/instruction_menu.jpg
+    - assets/icons/home_button.png
+    - assets/icons/reset_button.png
+    - assets/icons/reset_circbutton.png
+    - assets/icons/okay_circbutton.png
+    - assets/icons/home_circbutton.png
+    - assets/icons/medieval_flip_logo.png
+  fonts:
+    - family: Augusta
+      fonts:
+        - asset: fonts/Augusta.ttf
+    - family: ChampFleury
+      fonts:
+        - asset: fonts/1529 Champ Fleury.ttf
+    - family: MAXIMILIANZIER
+      fonts:
+        - asset: fonts/MAXIMILIANZIER.ttf
