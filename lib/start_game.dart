@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:medieval_flip/database_helper.dart';
+import 'package:flame/flame.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -458,90 +460,86 @@ class _StartGameScreenState extends State<StartGameScreen>
       builder: (BuildContext context) {
         return Dialog(
           backgroundColor: Colors.transparent,
-
-child: SingleChildScrollView(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/result_box.png'),
-                fit: BoxFit.fill,
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/result_box.png'),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 10),
-                Text(
-                  isGameWon ? 'Game Finished' : 'Game Over',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontFamily: 'MAXIMILIANZIER',
+              padding: const EdgeInsets.all(50.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 10),
+                  Text(
+                    isGameWon ? 'Game Finished' : 'Game Over',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'MAXIMILIANZIER',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 0),
-                Text(
-                  'Points: $points',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-                Text(
-                  'Moves: $moves',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-                Text(
-                  'Time Remaining: ${_formatTimer()}',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-
-                TextField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter name',
-                    hintStyle: TextStyle(
+                  const SizedBox(height: 0),
+                  Text(
+                    'Points: $points',
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
                       fontFamily: 'ChampFleury',
                     ),
                   ),
-                ),
-                
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-
-                    submitScore();
-
-                    Navigator.pop(context); // Close the dialog
-                    Navigator.popUntil(context,
-                        ModalRoute.withName('/')); // Navigate back to main.dart
-                  },
-                  child: Image.asset(
-                    'assets/icons/okay_circbutton.png',
-                    width: 100,
-                    height: 50,
+                  Text(
+                    'Moves: $moves',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'ChampFleury',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-              ],
+                  Text(
+                    'Time Remaining: ${_formatTimer()}',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'ChampFleury',
+                    ),
+                  ),
+                  TextField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter name',
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'ChampFleury',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      submitScore();
+
+                      Navigator.pop(context); // Close the dialog
+                      Navigator.popUntil(
+                          context,
+                          ModalRoute.withName(
+                              '/')); // Navigate back to main.dart
+                    },
+                    child: Image.asset(
+                      'assets/icons/okay_circbutton.png',
+                      width: 100,
+                      height: 50,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
-),
-
-          
         );
       },
     );
@@ -553,88 +551,86 @@ child: SingleChildScrollView(
       builder: (BuildContext context) {
         return Dialog(
           backgroundColor: Colors.transparent,
-child: SingleChildScrollView(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/result_box.png'),
-                fit: BoxFit.fill,
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/result_box.png'),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 10),
-                const Text(
-                  'Game Finished',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontFamily: 'MAXIMILIANZIER',
+              padding: const EdgeInsets.all(50.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Game Finished',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'MAXIMILIANZIER',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 0),
-                Text(
-                  'Points: $points',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-                Text(
-                  'Moves: $moves',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-                Text(
-                  'Time Remaining: ${_formatTimer()}',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'ChampFleury',
-                  ),
-                ),
-
-                TextField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter name',
-                    hintStyle: TextStyle(
+                  const SizedBox(height: 0),
+                  Text(
+                    'Points: $points',
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
                       fontFamily: 'ChampFleury',
                     ),
                   ),
-                ),
-
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () async {
-
-                    submitScore();
-                    
-                    Navigator.pop(context); // Close the dialog
-                    Navigator.popUntil(context,
-                        ModalRoute.withName('/')); // Navigate back to main.dart
-                  },
-                  child: Image.asset(
-                    'assets/icons/okay_circbutton.png',
-                    width: 100,
-                    height: 50,
+                  Text(
+                    'Moves: $moves',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'ChampFleury',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-              ],
+                  Text(
+                    'Time Remaining: ${_formatTimer()}',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'ChampFleury',
+                    ),
+                  ),
+                  TextField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter name',
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'ChampFleury',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () async {
+                      submitScore();
+
+                      Navigator.pop(context); // Close the dialog
+                      Navigator.popUntil(
+                          context,
+                          ModalRoute.withName(
+                              '/')); // Navigate back to main.dart
+                    },
+                    child: Image.asset(
+                      'assets/icons/okay_circbutton.png',
+                      width: 100,
+                      height: 50,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
-),
-          
         );
       },
     );
@@ -649,4 +645,18 @@ child: SingleChildScrollView(
       await DatabaseHelper.insertPlayerScore(name, score);
     }
   }
+}
+
+//pause
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: WillPopScope(
+      onWillPop: () async => false,
+
+      child: GameWidget(
+        game: _StartGameScreenState,
+        overlayBuilderMap:
+      ),
+    ),
+  );
 }
