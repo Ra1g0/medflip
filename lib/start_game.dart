@@ -2,7 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:medieval_flip/database_helper.dart';
-import 'package:flame/flame.dart';
+import 'package:flame/game.dart';
+import 'package:flutter/material.dart';
+import 'dart:async'; // Import Timer
 
 void main() {
   runApp(const MaterialApp(
@@ -407,10 +409,24 @@ class _StartGameScreenState extends State<StartGameScreen>
                   ),
                 ],
               )
-            else
-              Text(
-                buttonText,
-                style: textStyle,
+            else if (buttonText == 'Pause')
+              Row(
+                children: [
+                  Text(
+                    buttonText,
+                    style: textStyle,
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    width: 64,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(iconPath),
+                      ),
+                    ),
+                  )
+                ],
               ),
           ],
         ),
@@ -648,15 +664,4 @@ class _StartGameScreenState extends State<StartGameScreen>
 }
 
 //pause
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: WillPopScope(
-      onWillPop: () async => false,
 
-      child: GameWidget(
-        game: _StartGameScreenState,
-        overlayBuilderMap:
-      ),
-    ),
-  );
-}
